@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app class="pa-2">
+    <v-main>
+      <!-- <v-btn ><router-link id="signup" to="/signup">Signup</router-link></v-btn> <br>
+      <router-link to="/">Home</router-link><br>
+      <router-link  to="/header1">Header1</router-link><br>
+      <router-link  to="/signup">signup</router-link><br>
+      <router-link  to="/login">login</router-link><br>
+      <router-link  to="/sample">sample</router-link><br>
+      <router-link  to="/forgotPass">forgotPass</router-link><br>
+      <router-link  to="/sample2">sample2</router-link><br> -->
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: 'App',
+  data(){
+    return{
 
-#nav {
-  padding: 30px;
-}
+    }
+  },
+  mounted(){
+    this.$store.dispatch('loadAllProduct')
+    this.$store.dispatch('loadProductCategory')
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  }
+};
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+#signup{
+  text-decoration: none;
+  color: red;
+}
+p,a{
+  text-decoration: none;
 }
 </style>

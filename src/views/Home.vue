@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <header-2 />
+    <v-main class="pa-2">
+
+    <all-product />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AllProduct from '../components/allProduct.vue';
+import header2 from '../components/header2.vue';
+import {mapState} from 'vuex'
+
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  components: { 
+    header2, 
+    AllProduct 
+    },
+  name: "Home",
+  data(){
+    return{
+      show: false,
+  
+    }
+  },
+
+  computed:{
+    ...mapState([
+      'msg',
+      'allProducts'
+    ])
+  },
+  mounted(){
+    this.$store.dispatch('loadAllUser')
   }
-}
+
+};
 </script>
