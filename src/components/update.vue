@@ -1,12 +1,12 @@
 <template>
 <div class="signup">
   <v-container >
-    <header-1 />
+    <header-2 />
     <v-main class="my-3" >
       <v-row class="align-center justify-center">
       <v-col lg="5">
         <v-card rounded="lg" elevation="5" class="pa-5 my-3">
-          <v-card-title class="justify-center">SIGNUP</v-card-title>
+          <v-card-title class="justify-center">UPDATE DATA</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-row>
               <v-col cols="12" md="6">
@@ -78,11 +78,11 @@
                 class="mx-10 "
                 @click="submit"
               >
-                SIGNUP
+                UPDATE
               </v-btn>
             </v-row>
             <v-row justify="center">
-              <p>Already have an account <router-link to="/login">Click Here</router-link></p>
+              <p>If you want to show the Profile data <router-link to="/profile">Click Here</router-link></p>
             </v-row>
           </v-form>
         </v-card>
@@ -94,11 +94,11 @@
 </template>
 
 <script>
-import Header1 from './Header1.vue';
+import Header2 from './header2.vue';
 export default {
   name: "signup",
   components: { 
-    Header1,
+    Header2,
     },
     computed: {
     passwordMatch() {
@@ -110,11 +110,11 @@ export default {
     valid: true,
     fname: "",
     lname: "",
-    email: "",
     username:"",
+    email: "",
+    phoneNumber:"",
     password:"",
     cpassword:"",
-    phoneNumber:"",
 
     nameRules: [
       (v) => !!v || "Name is required",
@@ -145,6 +145,21 @@ export default {
       () => this.password === this.cpassword || "Password and Confirm password doesn't match"      
     ],
     }},
+
+  mounted() {
+    let getloginuser = localStorage.getItem("loginUser");
+    let loginObject = JSON.parse(localStorage.getItem(getloginuser));
+    this.userObject = loginObject;
+    console.log("User object");
+    console.log(loginObject);
+    this.fname = loginObject.name.firstName,
+    this.lname = loginObject.name.lastName,
+    this.username = loginObject.Username,
+    this.email = loginObject.Email,
+    this.phoneNumber = loginObject.PhoneNumber,
+    this.password = loginObject.Password,
+    this.cpassword = loginObject.Password
+  },
 
   methods: {
     // ========> For Signup <==================

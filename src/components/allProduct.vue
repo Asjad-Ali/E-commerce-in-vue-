@@ -53,6 +53,13 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <div class="text-center my-6">
+    <v-pagination
+      v-model="page"
+      :length="4"
+    ></v-pagination>
+  </div>
   </v-container>
 
 </template>
@@ -67,6 +74,7 @@ export default {
   data() {
     return {
       show: false,
+      page: 1
     };
   },
 

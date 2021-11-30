@@ -3,9 +3,7 @@
     <v-app-bar app
       color="primary"
     >
-      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon> -->
-
-      <v-toolbar-title>
+      <v-toolbar-title class="white--text">
         <span class="font-weight-light">Shopping</span>
         <span >Mall</span>
       </v-toolbar-title>
@@ -65,8 +63,8 @@ data(){
     return{
       loginuser:"",
         items: [
-        { title: 'Profile', route: "/category" },
-        { title: 'Update', route: "/category"  },
+        { title: 'Profile', route: "/profile" },
+        { title: 'Update', route: "/update"  },
         { title: 'logout', route: "/login" },
       ],
   }
@@ -74,7 +72,6 @@ data(){
 mounted(){
   let getloginuser = localStorage.getItem('loginUser')
   let loginObject = JSON.parse(localStorage.getItem(getloginuser))
-
   this.loginuser = loginObject.name.firstName+ " "+loginObject.name.lastName
 }
 

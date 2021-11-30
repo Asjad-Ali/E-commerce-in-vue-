@@ -7,7 +7,8 @@ import signup from '../components/signup.vue'
 import forgotPass from '../components/forgotPass.vue'
 import category from '../components/category.vue'
 import productInfo from '../components/productInfo.vue'
-
+import profile from '../components/profile.vue'
+import update from '../components/update.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,16 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/update',
+    name: 'update',
+    component: update
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profile
   },
   {
     path: '/productInfo',
