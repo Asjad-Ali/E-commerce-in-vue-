@@ -9,6 +9,7 @@ import category from '../components/category.vue'
 import productInfo from '../components/productInfo.vue'
 import profile from '../components/profile.vue'
 import update from '../components/update.vue'
+import cart from '../components/cart.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: cart
   },
   {
     path: '/update',

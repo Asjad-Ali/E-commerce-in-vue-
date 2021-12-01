@@ -10,6 +10,7 @@ export default new Vuex.Store({
       allProducts: [],
       allUsers:[],
       sProduct:[],
+      sCartProduct:[],
       productCategory:[],
       specificCategory:[]
   },
@@ -23,6 +24,10 @@ export default new Vuex.Store({
     },
   getSingleProduct(state,sproduct) {
     state.sProduct=sproduct;
+  },
+  getSingleCartProduct(state,sproduct) {
+    state.sCartProduct=sproduct;
+    console.log(state.sCartProduct)
   },
   getProductCategory(state,pcategory) {
     state.productCategory=pcategory;
@@ -73,6 +78,21 @@ export default new Vuex.Store({
           console.log(error)
       })
     },
+
+    loadAddTocart({commit},payload) {
+      console.log(payload);
+    axios.get(`https://fakestoreapi.com/products/${payload}`)
+      .then(res =>{
+          let sproduct=res.data;
+          // console.log(sproduct);
+          commit('getSingleCartProduct',sproduct)
+      })
+      .catch(error => {
+          console.log(error)
+      })
+    },
+
+    
 
     loadProductCategory({commit}) {
       axios.get('https://fakestoreapi.com/products/categories')

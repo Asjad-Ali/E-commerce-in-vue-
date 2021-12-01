@@ -168,6 +168,7 @@ export default {
           }
           else{
             alert("Signup Successfully Click ok to Login Page")
+            localStorage.setItem("loginUser",key)
             localStorage.setItem(users.email , JSON.stringify(users));
             this.$router.push('login') 
           }

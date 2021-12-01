@@ -179,12 +179,17 @@ export default {
         for (let key of keys) {
           if(key===users.Email)
           {
-            alert("Email already exist")
+            localStorage.removeItem(key);
+            localStorage.setItem("loginUser",key)
+            localStorage.setItem(users.email , JSON.stringify(users));
+            alert("Profile update Successfully Click")
+            this.$router.push('home')
           }
           else{
-            alert("Signup Successfully Click ok to Login Page")
+            localStorage.setItem("loginUser",key)
             localStorage.setItem(users.email , JSON.stringify(users));
-            this.$router.push('login') 
+            alert("Profile update Successfully Click")
+            this.$router.push('home') 
           }
         }
     }

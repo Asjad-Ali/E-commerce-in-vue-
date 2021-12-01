@@ -13,7 +13,7 @@
       </v-col>
       <v-col lg="12" md="12" sm="12" class="d-flex justify-center align-center">
         <div 
-        class="text-center ma-2">
+        class="text-center ma-2" >
           <v-btn v-for="scategory in productCategory" :key="scategory.index"
           color="primary"
             @click="(getCatogryPro(scategory))"

@@ -19,9 +19,21 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon class="white--text">
-        <v-icon>mdi-cart</v-icon>
-      </v-btn>
+      <v-badge
+      left
+      overlap
+      content="6"
+      color="red"
+      class="pt-1"
+    >
+    <v-btn text small router to="/cart">
+        <v-icon color="white" size="30">mdi-cart</v-icon>
+    </v-btn>
+    </v-badge>
+
+
+
+
 
       <v-btn icon class="white--text">
         <v-icon>mdi-magnify</v-icon>

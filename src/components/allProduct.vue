@@ -16,7 +16,7 @@
         v-for="product in allProducts"
         :key="product.index"
       >
-        <v-card height="90vh"
+        <v-card 
           class="d-flex flex-column justify-md-space-between pa-1"
           elevation="6"
         >
@@ -45,7 +45,7 @@
           </v-row>
 
           <v-row class="justify-center">
-            <v-btn @click="addToCart" class="ma-2" color="success">Add to Cart</v-btn>
+            <v-btn @click="addToCart(product.id)" class="ma-2" color="success">Add to Cart</v-btn>
           </v-row>
 
           <v-divider class="mt-4"></v-divider>
@@ -86,8 +86,9 @@ export default {
        this.$store.dispatch('loadSingleProduct',id)
        this.$router.push("/productInfo")
     },
-    addToCart(){
-      alert("Add to cart")
+    addToCart(id){
+      alert("Add to cart "+id)
+        this.$store.dispatch('loadAddTocart',id)
     },
   }
 };

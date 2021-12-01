@@ -12,6 +12,7 @@
               v-model="email"
               :rules="emailRules"
               label="E-mail"
+              color="black"
               required
             ></v-text-field>
 
@@ -63,10 +64,10 @@ export default {
         const keys = Object.keys(localStorage);
         var check=true
         for (let key of keys) {
-          if(key==this.email)
+          if(key===this.email)
           {
             check=false
-            const pass=(JSON.parse(localStorage.getItem(key)).password)
+            const pass=(JSON.parse(localStorage.getItem(key)).Password)
             this.password=pass
           }
         }
