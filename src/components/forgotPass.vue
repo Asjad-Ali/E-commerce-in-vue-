@@ -11,6 +11,7 @@
             <v-text-field
               v-model="email"
               :rules="emailRules"
+              append-icon = 'mdi-email'
               label="E-mail"
               color="black"
               required
@@ -67,7 +68,7 @@ export default {
           if(key===this.email)
           {
             check=false
-            const pass=(JSON.parse(localStorage.getItem(key)).Password)
+            const pass=(JSON.parse(localStorage.getItem(key)).password)
             this.password=pass
           }
         }

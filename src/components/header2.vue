@@ -21,24 +21,15 @@
 
       <v-badge
       left
-      overlap
-      content="6"
+      overlap  
       color="red"
+      :content="sCartProduct.length"
       class="pt-1"
     >
     <v-btn text small router to="/cart">
         <v-icon color="white" size="30">mdi-cart</v-icon>
     </v-btn>
     </v-badge>
-
-
-
-
-
-      <v-btn icon class="white--text">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
 
 <div class="text-center">
     <v-menu offset-y open-on-hover>
@@ -69,6 +60,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name:"Header2",
 data(){
@@ -81,11 +73,15 @@ data(){
       ],
   }
 },
+  computed: {
+    ...mapState(["sCartProduct"]),
+  },
 mounted(){
   let getloginuser = localStorage.getItem('loginUser')
   let loginObject = JSON.parse(localStorage.getItem(getloginuser))
-  this.loginuser = loginObject.name.firstName+ " "+loginObject.name.lastName
-}
+  this.loginuser = loginObject.name.firstname+ " "+loginObject.name.lastname
+},
+
 
 
 }

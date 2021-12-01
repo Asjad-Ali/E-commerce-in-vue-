@@ -1,10 +1,10 @@
 <template>
   <div class="signup">
-    <v-container>
+    <v-container >
       <header-2 />
       <v-main class="pa-0">
-        <v-col lg="5">
-          <v-card rounded="lg" elevation="5" class="pa-8">
+        <v-col lg="5" class="d-flex align-center justify-center">
+          <v-card rounded="lg" elevation="5" class="px-8 py-4">
             <v-card-title class="justify-center">PROFILE DATA</v-card-title>
             <v-form ref="form" v-model="valid" lazy-validation>
               <v-row class="d-flex formRow">
@@ -74,11 +74,11 @@ export default {
     this.userObject = loginObject;
     console.log("User object");
     console.log(loginObject);
-    (this.name = loginObject.name.firstName + " " + loginObject.name.lastName),
-      (this.email = loginObject.Email),
-      (this.username = loginObject.Username),
-      (this.password = loginObject.Password),
-      (this.phoneNumber = loginObject.PhoneNumber);
+    (this.name = loginObject.name.firstname + " " + loginObject.name.lastname),
+      (this.email = loginObject.email),
+      (this.username = loginObject.username),
+      (this.password = loginObject.password),
+      (this.phoneNumber = loginObject.phone);
   },
 };
 </script>

@@ -12,6 +12,7 @@
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="fname"
+                  append-icon = 'mdi-account'
                   :rules="nameRules"
                   label="First name"
                   hint="e.g Asjad"
@@ -22,6 +23,7 @@
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="lname"
+                  append-icon = 'mdi-account'
                   :rules="nameRules"
                   hint="e.g Ali"
                   label="Last name"
@@ -33,6 +35,7 @@
             <v-text-field
               v-model="username"
               label="Username"
+              append-icon = 'mdi-account-box'
               :rules="usernameRules"
               hint="e.g Asjadali, Asjad264"
               required
@@ -40,6 +43,7 @@
 
             <v-text-field
               v-model="email"
+              append-icon = 'mdi-email'
               :rules="emailRules"
               label="E-mail"
               hint="e.g asjadaliwatto@gmail.com"
@@ -48,6 +52,7 @@
 
               <v-text-field
                 v-model="phoneNumber"
+                append-icon = 'mdi-account-box'
                 :rules="phoneNumberRules"
                 label="Phone Number"
                 hint="e.g 3087262908, 03027262908"
@@ -56,14 +61,21 @@
 
               <v-text-field
                 v-model="password"
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'" 
+                counter @click:append="show1 = !show1"
                 :rules="passwordRules"
                 label="Password"
                 hint="e.g Asjad@123"
                 required
               ></v-text-field>
+              
 
               <v-text-field
                 v-model="cpassword"
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'" 
+                counter @click:append="show1 = !show1"
                 :rules="cpasswordRules"
                 label="Confirm Password"
                 hint="e.g Asjad@123"
@@ -76,7 +88,7 @@
                 color="primary"
                 width="25%"
                 class="mx-10 "
-                @click="submit"
+                @click="signup"
               >
                 SIGNUP
               </v-btn>
@@ -107,6 +119,7 @@ export default {
   },
   data(){
     return{
+    show1:false,
     valid: true,
     fname: "",
     lname: "",
@@ -148,34 +161,36 @@ export default {
 
   methods: {
     // ========> For Signup <==================
-    submit() {
+    signup() {
       if (this.$refs.form.validate()) {
       let users = {
         email:this.email,
         name:{
-          firstName:this.fname,
-          lastName:this.lname
+          firstname:this.fname,
+          lastname:this.lname
         },
         username:this.username,
-        phoneNumber:this.phoneNumber,
+        phone:this.phoneNumber,
         password:this.password
       }
+      var check=true
       const keys = Object.keys(localStorage);
         for (let key of keys) {
-          if(key===users.Email)
+          console.log(key)
+          if(key===users.email)
           {
+            check=false
             alert("Email already exist")
-          }
-          else{
-            alert("Signup Successfully Click ok to Login Page")
-            localStorage.setItem("loginUser",key)
+          }}
+        if(check){
+            localStorage.setItem("loginUser",users.email)
             localStorage.setItem(users.email , JSON.stringify(users));
             this.$router.push('login') 
-          }
+          alert("Your account successfully created")
+        }
         }
     }
   }
-}
 }
 </script>
 

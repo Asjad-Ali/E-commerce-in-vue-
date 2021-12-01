@@ -26,7 +26,7 @@
 
           <v-card-title  @click="productDescription(product.id)" > {{ product.title }} </v-card-title>
 
-          <v-card-subtitle class="mt-3">
+          <v-card-subtitle class="d-flex">
             {{ product.rating.count }} Product are available
           </v-card-subtitle>
 
@@ -40,13 +40,11 @@
               size="14"
             ></v-rating>
             <div class="grey--text ms-4">
-              {{ product.rating.rate }} ({{ product.rating.count }})
+              {{ product.rating.rate }}
             </div>
           </v-row>
 
-          <v-row class="justify-center">
-            <v-btn @click="addToCart(product.id)" class="ma-2" color="success">Add to Cart</v-btn>
-          </v-row>
+
 
           <v-divider class="mt-4"></v-divider>
           <v-spacer></v-spacer>
@@ -87,7 +85,7 @@ export default {
        this.$router.push("/productInfo")
     },
     addToCart(id){
-      alert("Add to cart "+id)
+      // alert("Add to cart "+id)
         this.$store.dispatch('loadAddTocart',id)
     },
   }

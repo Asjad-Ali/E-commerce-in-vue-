@@ -26,7 +26,8 @@ export default new Vuex.Store({
     state.sProduct=sproduct;
   },
   getSingleCartProduct(state,sproduct) {
-    state.sCartProduct=sproduct;
+    state.sCartProduct.push(sproduct);
+    console.log("Add to cart")
     console.log(state.sCartProduct)
   },
   getProductCategory(state,pcategory) {

@@ -1,5 +1,5 @@
 <template>
-  <v-app class="pa-2">
+  <v-app>
     <v-main>
       <!-- <v-btn ><router-link id="signup" to="/signup">Signup</router-link></v-btn> <br>
       <router-link to="/">Home</router-link><br>

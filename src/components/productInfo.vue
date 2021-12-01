@@ -57,6 +57,9 @@
             <v-col cols="9">
               <h5>{{ sProduct.description }}</h5>
             </v-col>
+          </v-row >
+            <v-row class="my-2 justify-center">
+            <v-btn @click="addToCart(sProduct.id)" class="ma-2" color="success">Add to Cart</v-btn>
           </v-row>
         </v-card>
       </v-col>
@@ -73,6 +76,12 @@ export default {
   name: "productInfo",
   computed: {
     ...mapState(["sProduct"]),
+  },
+  methods:{
+        addToCart(id){
+      // alert("Add to cart "+id)
+        this.$store.dispatch('loadAddTocart',id)
+    },
   },
   mounted() {
     this.$store.dispatch("loadSingleProduct");

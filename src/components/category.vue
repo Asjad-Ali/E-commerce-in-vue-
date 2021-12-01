@@ -69,10 +69,6 @@
             </div>
           </v-row>
 
-          <v-row class="justify-center">
-            <v-btn @click="addToCart" class="ma-2" color="success">Add to Cart</v-btn>
-          </v-row>
-
           <v-divider class="mt-4"></v-divider>
           <v-spacer></v-spacer>
         </v-card>

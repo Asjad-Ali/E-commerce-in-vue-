@@ -10,6 +10,7 @@
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field
               v-model="email"
+              append-icon = 'mdi-email'
               :rules="emailRules"
               label="E-mail"
               required
@@ -17,6 +18,9 @@
 
             <v-text-field
               v-model="password"
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'" 
+                counter @click:append="show1 = !show1"
               :rules="passwordRules"
               label="Password"
               required
@@ -37,7 +41,7 @@
               </v-btn>
             </v-row>
             <v-row justify="center">
-              <p>Don't have account <router-link to="/signup">Click Here</router-link></p>
+              <p>Don't have account <router-link to="/">Click Here</router-link></p>
             </v-row>
           </v-form>
         </v-card>
@@ -56,6 +60,7 @@ export default {
   name: "login",
   data(){
     return{
+      show1:false,
       valid: true,
       loginUser:"",
       email:"",
@@ -79,14 +84,13 @@ export default {
         for (let key of keys) {
           if(key==this.email)
           {
-            localStorage.setItem("loginUser",key)
-            
             check=false
             const pass=(JSON.parse(localStorage.getItem(key)).password)
             if(this.password===pass)
             {
               alert("Login Successful")
-              this.$router.push('/')
+              localStorage.setItem("loginUser",key)
+              this.$router.push('/home')
             }
             else
             alert("Password incorrect")

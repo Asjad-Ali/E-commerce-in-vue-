@@ -152,13 +152,13 @@ export default {
     this.userObject = loginObject;
     console.log("User object");
     console.log(loginObject);
-    this.fname = loginObject.name.firstName,
-    this.lname = loginObject.name.lastName,
-    this.username = loginObject.Username,
-    this.email = loginObject.Email,
-    this.phoneNumber = loginObject.PhoneNumber,
-    this.password = loginObject.Password,
-    this.cpassword = loginObject.Password
+    this.fname = loginObject.name.firstname,
+    this.lname = loginObject.name.lastname,
+    this.username = loginObject.username,
+    this.email = loginObject.email,
+    this.phoneNumber = loginObject.phone,
+    this.password = loginObject.password,
+    this.cpassword = loginObject.password
   },
 
   methods: {
