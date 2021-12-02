@@ -1,15 +1,14 @@
 <template>
-<div class="signup">
-  <v-container >
+<div class="Signpage d-flex align-center justify-center">
     <header-1 />
-    <v-main class="my-3" >
-      <v-row class="align-center justify-center">
-      <v-col lg="5">
+  <v-container >
+    <v-main >
+      <div class="d-flex align-center justify-center">
+      <v-col lg="5" md="6" sm="8">
         <v-card rounded="lg" elevation="5" class="pa-5 my-3">
           <v-card-title class="justify-center">SIGNUP</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-row>
-              <v-col cols="12" md="6">
+
                 <v-text-field
                   v-model="fname"
                   append-icon = 'mdi-account'
@@ -17,10 +16,10 @@
                   label="First name"
                   hint="e.g Asjad"
                   required
+                  outlined
+                  dense
                 ></v-text-field>
-              </v-col>
 
-              <v-col cols="12" md="6">
                 <v-text-field
                   v-model="lname"
                   append-icon = 'mdi-account'
@@ -28,9 +27,9 @@
                   hint="e.g Ali"
                   label="Last name"
                   required
+                  outlined
+                  dense
                 ></v-text-field>
-              </v-col>
-            </v-row>
 
             <v-text-field
               v-model="username"
@@ -39,6 +38,8 @@
               :rules="usernameRules"
               hint="e.g Asjadali, Asjad264"
               required
+              outlined
+              dense
             ></v-text-field>
 
             <v-text-field
@@ -48,26 +49,32 @@
               label="E-mail"
               hint="e.g asjadaliwatto@gmail.com"
               required
+              outlined
+              dense
             ></v-text-field>
 
               <v-text-field
                 v-model="phoneNumber"
-                append-icon = 'mdi-account-box'
+                append-icon = 'mdi-phone-plus'
                 :rules="phoneNumberRules"
                 label="Phone Number"
                 hint="e.g 3087262908, 03027262908"
                 required
+                outlined
+                dense
               ></v-text-field>
 
               <v-text-field
                 v-model="password"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show1 ? 'text' : 'password'" 
-                counter @click:append="show1 = !show1"
+                @click:append="show1 = !show1"
                 :rules="passwordRules"
                 label="Password"
                 hint="e.g Asjad@123"
                 required
+                outlined
+                dense
               ></v-text-field>
               
 
@@ -75,14 +82,16 @@
                 v-model="cpassword"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show1 ? 'text' : 'password'" 
-                counter @click:append="show1 = !show1"
+                @click:append="show1 = !show1"
                 :rules="cpasswordRules"
                 label="Confirm Password"
                 hint="e.g Asjad@123"
                 required
+                outlined
+                dense
               ></v-text-field>
 
-            <v-row class="justify-center my-4">
+            <v-row class="justify-center my-1">
               <v-btn
                 :disabled="!valid"
                 color="primary"
@@ -99,7 +108,7 @@
           </v-form>
         </v-card>
       </v-col>
-    </v-row>
+    </div>
     </v-main>
   </v-container>
   </div>
@@ -108,10 +117,8 @@
 <script>
 import Header1 from './Header1.vue';
 export default {
+  components: { Header1 },
   name: "signup",
-  components: { 
-    Header1,
-    },
     computed: {
     passwordMatch() {
       return () => this.password === this.cpassword || "Password and Confirm password doesn't match";
@@ -195,17 +202,17 @@ export default {
 </script>
 
 <style>
-.signup{
+.Signpage{
     /* The image used */
-  background-image: url("https://img.lovepik.com//photo/40007/3495.jpg_300.jpg");
+  background-image: url("https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg");
   padding: 0px;
   margin: 0px;
   /* Full height */
   width: 100%;
   height: 100%;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 </style>

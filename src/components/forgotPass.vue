@@ -3,7 +3,7 @@
   <header-1 />
 <v-container >
    <v-row class="align-content-center justify-center">
-      <v-col lg="6">
+      <v-col lg="5" md="6" sm="8">
         <v-card elevation="5" class="pa-5 mx-15">
           <v-card-title class="justify-center">FORGOT PASSWORD</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -13,14 +13,16 @@
               :rules="emailRules"
               append-icon = 'mdi-email'
               label="E-mail"
-              color="black"
+              color="primary"
               required
+              outlined
+              dense
             ></v-text-field>
 
             <v-text-field
               v-model="password"
               label="Your Password"
-              disabled
+              readonly
             ></v-text-field>
             <v-row class="justify-center my-4">
               <v-btn

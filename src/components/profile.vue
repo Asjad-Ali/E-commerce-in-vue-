@@ -2,38 +2,42 @@
   <div class="signup">
     <v-container >
       <header-2 />
-      <v-main class="pa-0">
-        <v-col lg="5" class="d-flex align-center justify-center">
-          <v-card rounded="lg" elevation="5" class="px-8 py-4">
+      <v-main >
+        <v-row class="d-flex align-center justify-center">
+        <v-col lg="5" md="6" sm="7" >
+          <v-card rounded="lg" elevation="5" class="px-8 py-4 ">
             <v-card-title class="justify-center">PROFILE DATA</v-card-title>
             <v-form ref="form" v-model="valid" lazy-validation>
-              <v-row class="d-flex formRow">
-                <v-col cols="12">
-                 <v-text-field v-model="name" label="Name"></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field v-model="email" label="Email"></v-text-field>
-                </v-col>
-                  <v-col cols="12">
+              <v-row class="d-flex flex-column">
+
+                 <v-text-field v-model="name" readonly label="Name"></v-text-field>
+
+
+                  <v-text-field v-model="email" readonly label="Email"></v-text-field>
+
+ 
                     <v-text-field
                       v-model="username"
                       label="Username"
+                      readonly
                     ></v-text-field>
-                  </v-col>
 
-                  <v-col cols="12">
+
+
                     <v-text-field
                       v-model="phoneNumber"
                       label="Phone Number"
+                      readonly
                     ></v-text-field>
-                  </v-col>
 
-                  <v-col>
+
+
                     <v-text-field
                       v-model="password"
                       label="Password"
+                      readonly
                     ></v-text-field>
-                  </v-col>
+
               </v-row>
 
               <v-row justify="center">
@@ -45,6 +49,7 @@
             </v-form>
           </v-card>
         </v-col>
+        </v-row>
       </v-main>
     </v-container>
   </div>
@@ -86,18 +91,16 @@ export default {
 <style>
 .signup {
   /* The image used */
-  background-image: url("https://img.lovepik.com//photo/40007/3495.jpg_300.jpg");
+  background-image: url("https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg");
   padding: 0px;
   margin: 0px;
   /* Full height */
   width: 100%;
   height: 100%;
   background-position: center;
+    background-attachment: fixed;
+
   background-repeat: no-repeat;
   background-size: cover;
-}
-.formRow col{
-  padding: 0px;
-  margin: 0px;
 }
 </style>

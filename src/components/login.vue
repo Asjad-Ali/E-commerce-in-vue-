@@ -1,10 +1,10 @@
 <template>
-<div class="login">
+<div class="login d-flex justify-center align-center">
 <v-container >
   <header-1 />
-  <v-main class="d-flex justify-center align-center">
+  <v-main>
       <v-row class="align-center justify-center">
-      <v-col lg="5">
+      <v-col lg="5" md="6" sm="8">
         <v-card elevation="5" class="pa-5">
           <v-card-title class="justify-center">LOGIN</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -14,16 +14,20 @@
               :rules="emailRules"
               label="E-mail"
               required
+              outlined
+              dense
             ></v-text-field>
 
             <v-text-field
               v-model="password"
                 :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show1 ? 'text' : 'password'" 
-                counter @click:append="show1 = !show1"
+                @click:append="show1 = !show1"
               :rules="passwordRules"
               label="Password"
               required
+              outlined
+              dense
             ></v-text-field>
             <v-row justify="end">
               
@@ -32,6 +36,7 @@
             <v-row class="justify-center my-4">
               <v-btn
                 :disabled="!valid"
+                
                 color="primary"
                 width="25%"
                 class="mx-10 "
@@ -57,6 +62,7 @@
 import Header1 from './Header1.vue';
 export default {
   components: { Header1 },
+
   name: "login",
   data(){
     return{
@@ -112,12 +118,13 @@ a{
 }
 .login{
     /* The image used */
-  background-image: url("https://img.freepik.com/free-vector/e-commerce-icon-robotic-hand-internet-shopping-online-purchase-add-cart_127544-586.jpg?size=626&ext=jpg");
+  background-image: url("https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg");
   padding: 0px;
   margin: 0px;
   /* Full height */
   width: 100%;
   height: 100%;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

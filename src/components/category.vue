@@ -11,23 +11,22 @@
           the product.
         </p>
       </v-col>
-      <v-col lg="12" md="12" sm="12" class="d-flex justify-center align-center">
-        <div 
-        class="text-center ma-2" >
-          <v-btn v-for="scategory in productCategory" :key="scategory.index"
+    </v-row>
+    <v-row class="d-flex">
+      <v-col class="d-flex align-lg-space-around flex-row" v-for="scategory in productCategory" :key="scategory.index">
+          <v-btn 
           color="primary"
             @click="(getCatogryPro(scategory))"
             class="mx-5"
           >{{scategory}}
           </v-btn>
-        </div>
       </v-col>
     </v-row>
     </v-container>
 
   <v-container>
-      <v-row>
-      <v-col class="d-flex flex-column align-center">
+      <v-row class="d-flex align-center justify-center">
+      <v-col  lg="3" md="6" class="d-flex flex-column align-center">
         <h1 style="text-transform: uppercase">
           {{catagory}}
         </h1>
@@ -45,12 +44,13 @@
           class="d-flex flex-column justify-md-space-between pa-1"
           elevation="6"
         >
-          <v-img @click="productDescription(product.id)"
+          <v-img contain @click="productDescription(product.id)"
           :src="product.image" 
           height="350px"></v-img>
 
-          <v-card-title  @click="productDescription(product.id)" > {{ product.title }} </v-card-title>
-
+          <div style="height:3rem" class="d-flex align-center mx-4 mt-2">
+             <h4  @click="productDescription(product.id)" > {{ product.title }} </h4>
+          </div>
           <v-card-subtitle>
             {{ product.rating.count }} Product are available
           </v-card-subtitle>

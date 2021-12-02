@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container >
     <v-app-bar app
       color="primary"
     >
@@ -24,7 +24,7 @@
       overlap  
       color="red"
       :content="sCartProduct.length"
-      class="pt-1"
+      class="d-flex  mt-2"
     >
     <v-btn text small router to="/cart">
         <v-icon color="white" size="30">mdi-cart</v-icon>

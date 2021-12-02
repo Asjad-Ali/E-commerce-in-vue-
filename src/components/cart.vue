@@ -2,31 +2,30 @@
   <v-app>
     <header-2 />
     <v-main>
-      <v-container v-for="item in sCartProduct" :key="item.index">
-        <v-card class="px-10 py-2 d-flex" elevation="5">
-          <v-row  class="d-flex align-center justify-center">
-            <v-col cols="2">
-              <!-- <img  alt=""> -->
-              <v-avatar size="150">
-                <img :src="item.image" alt="" />
+      <v-container class="d-flex justify-center ali" v-for="item in sCartProduct" :key="item.index">
+        <v-card class="px-2 py-2 d-flex" elevation="5">
+          <v-row class="d-flex align-center justify-space-around justify-content-center">
+            <v-col class="d-flex align-center justify-center" style="margin:5px" cols="12" lg="2" md="2" sm="12" xs="12" >
+                <v-avatar size="200px">
+                <img contain :src="item.image" alt="" />
               </v-avatar>
             </v-col>
-            <v-col cols="8" class="pe-3">
+            <v-col  style="margin:5px" cols="12" lg="7" md="7" sm="12" xs="12" >
               <v-row >
-                <v-col cols="12"
+                <v-col
                   ><h4>{{ item.title }}</h4>
                   </v-col>
               </v-row>
                 <v-row>
-                <v-col cols="12"
+                <v-col
                   ><p>{{ item.description }}</p>
                   </v-col>
               </v-row>
             </v-col>
-            <v-col cols="2" class="ps-10 d-flex flex-column">
-              <v-row>
-                <v-col cols="6"><h4>Price </h4> ${{ item.price }}</v-col>
-                <v-col cols="6" ><v-btn text class="mt-2 me-2"><v-icon color="red" size="40">mdi-delete</v-icon>
+            <v-col style="margin:5px" cols="12" lg="2" md="2" sm="12"  xs="12" >
+              <v-row >
+                <v-col class="d-flex justify-center align-center" cols="8"><h4>Price </h4>:  ${{ item.price }}</v-col>
+                <v-col class="d-flex justify-center align-center" cols="4" ><v-btn text class="mt-2 me-2"><v-icon color="red" size="40">mdi-delete</v-icon>
                 </v-btn></v-col>
               </v-row>
             </v-col>
