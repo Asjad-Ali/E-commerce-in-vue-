@@ -2,7 +2,7 @@
 <div class="login d-flex justify-center align-center">
 <v-container >
   <header-1 />
-  <v-main>
+  <v-main class="pb-10"> 
       <v-row class="align-center justify-center">
       <v-col lg="5" md="6" sm="8">
         <v-card elevation="5" class="pa-5">
@@ -107,6 +107,9 @@ export default {
           }
       }
     }
+  },
+  mounted(){
+    localStorage.removeItem("loginUser");
   }
 };
 </script>

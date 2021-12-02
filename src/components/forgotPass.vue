@@ -3,8 +3,8 @@
   <header-1 />
 <v-container >
    <v-row class="align-content-center justify-center">
-      <v-col lg="5" md="6" sm="8">
-        <v-card elevation="5" class="pa-5 mx-15">
+      <v-col lg="5" md="8" sm="10" xs="12">
+        <v-card elevation="5" class="pa-5 mx-10">
           <v-card-title class="justify-center">FORGOT PASSWORD</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
 
@@ -49,8 +49,8 @@
 <script>
 import Header1 from './Header1.vue';
 export default {
+  name:"forgotPassword",
   components: { Header1 },
-  name: "login",
   data(){
     return{
       valid: true,
@@ -69,6 +69,7 @@ export default {
         for (let key of keys) {
           if(key===this.email)
           {
+            console.log(key)
             check=false
             const pass=(JSON.parse(localStorage.getItem(key)).password)
             this.password=pass
@@ -88,7 +89,7 @@ a{
   font-weight: bold;
 }
 .forgot{
-    background-image: url("https://img.freepik.com/free-vector/e-commerce-icon-robotic-hand-internet-shopping-online-purchase-add-cart_127544-586.jpg?size=626&ext=jpg");
+    background-image: url("https://40obml2t8u691fd442y9pg71-wpengine.netdna-ssl.com/wp-content/uploads/login-page-bg.jpg");
   padding: 0px;
   margin: 0px;
   /* Full height */

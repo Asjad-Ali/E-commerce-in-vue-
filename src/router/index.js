@@ -10,44 +10,84 @@ import productInfo from '../components/productInfo.vue'
 import profile from '../components/profile.vue'
 import update from '../components/update.vue'
 import cart from '../components/cart.vue'
+import foter from '../components/foter.vue'
+import landingpage from '../components/landingpage.vue'
 
 Vue.use(VueRouter)
+
+function guardMyroute(to, from, next)
+{
+ var isAuthenticated= false;
+
+if(localStorage.getItem('loginUser'))
+  isAuthenticated = true;
+ else
+  isAuthenticated= false;
+ if(isAuthenticated) 
+ {
+  next(); // allow to enter route
+ } 
+ else
+ {
+  next('/login'); // go to '/login';
+ }
+}
+
+
 
 const routes = [
   {
     path: '/Home',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter : guardMyroute,
+  },
+  {
+    path: '/',
+    name: 'landingpage',
+    component: landingpage,
+  },
+
+  {
+    path: '/foter',
+    name: 'foter',
+    component: foter
   },
   {
     path: '/cart',
     name: 'cart',
-    component: cart
+    component: cart,
+    beforeEnter : guardMyroute,
+
   },
   {
     path: '/update',
     name: 'update',
-    component: update
+    component: update,
+    beforeEnter : guardMyroute,
   },
   {
     path: '/profile',
     name: 'profile',
-    component: profile
+    component: profile,
+    beforeEnter : guardMyroute,
   },
   {
     path: '/productInfo',
     name: 'productInfo',
-    component: productInfo
+    component: productInfo,
+    beforeEnter : guardMyroute,
   },
   {
     path: '/category',
     name: 'category',
-    component: category
+    component: category,
+    beforeEnter : guardMyroute,
   },
   {
     path: '/header1',
     name: 'header1',
-    component: header1
+    component: header1,
   },
   {
     path: '/login',
@@ -55,7 +95,7 @@ const routes = [
     component: login
   },
   {
-    path: '/',
+    path: '/signup',
     name: 'signup',
     component: signup
   },

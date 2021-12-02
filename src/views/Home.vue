@@ -2,7 +2,6 @@
   <v-app>
     <header-2 />
     <v-main class="pa-2">
-
     <all-product />
     </v-main>
   </v-app>
@@ -33,9 +32,7 @@ export default {
       'allProducts'
     ])
   },
-  mounted(){
-    this.$store.dispatch('loadAllUser')
-  }
+
 
 };
 </script>

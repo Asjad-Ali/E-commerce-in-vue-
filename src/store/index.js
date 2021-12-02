@@ -6,7 +6,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-      msg:"i am Store",
       allProducts: [],
       allUsers:[],
       sProduct:[],
@@ -55,7 +54,6 @@ export default new Vuex.Store({
         axios.get('https://fakestoreapi.com/users')
         .then(res =>{
             let user=res.data;
-            console.log(user)
             for(let index in user) {
               // console.log(user[index])
               localStorage.setItem(user[index].email,JSON.stringify(user[index]));
@@ -123,6 +121,9 @@ export default new Vuex.Store({
 
 
   },
-  modules: {
+  getters:{
+    getAllProducts(state){
+      return state.allProducts
+    }
   }
 })

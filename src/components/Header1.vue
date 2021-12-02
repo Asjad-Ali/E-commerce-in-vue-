@@ -11,7 +11,7 @@
         <span >Mall</span>
       </v-toolbar-title>
       <v-spacer />
-        <v-btn class="mr-5"  color="white"><router-link to="/">SIGNUP</router-link></v-btn>
+        <v-btn class="mr-5"  color="white"><router-link to="/signup">SIGNUP</router-link></v-btn>
         <v-btn class="menulist"  color="white"><router-link to="/login">LOGIN</router-link></v-btn>
       </v-app-bar>
 </div>

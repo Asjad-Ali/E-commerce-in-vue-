@@ -58,7 +58,7 @@
 <script>
 import Header2 from "./header2.vue";
 export default {
-  name: "signup",
+  name: "profile",
   components: {
     Header2,
   },
@@ -84,6 +84,8 @@ export default {
       (this.username = loginObject.username),
       (this.password = loginObject.password),
       (this.phoneNumber = loginObject.phone);
+
+
   },
 };
 </script>

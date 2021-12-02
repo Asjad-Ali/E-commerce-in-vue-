@@ -106,7 +106,7 @@
 <script>
 import Header2 from './header2.vue';
 export default {
-  name: "signup",
+  name: "update",
   components: { 
     Header2,
     },
@@ -142,6 +142,7 @@ export default {
     this.phoneNumber = loginObject.phone,
     this.password = loginObject.password,
     this.cpassword = loginObject.password
+
   },
 
   methods: {
@@ -166,7 +167,7 @@ export default {
           }
         }
     }
-  }
+  },
 }
 </script>
 

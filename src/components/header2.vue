@@ -36,7 +36,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           text
-          class="white--text"
+          class="white--text "
           v-bind="attrs"
           v-on="on"
         >
@@ -80,6 +80,9 @@ mounted(){
   let getloginuser = localStorage.getItem('loginUser')
   let loginObject = JSON.parse(localStorage.getItem(getloginuser))
   this.loginuser = loginObject.name.firstname+ " "+loginObject.name.lastname
+    
+
+    
 },
 
 

@@ -2,16 +2,14 @@
   <v-container>
     <header-2 />
     <v-container>
-      <v-row justify="center" class="d-flex flex-row">
-      <v-col cols="6" lg="6">
-        <v-card class="d-flex flex-column justify-space-between">
+      <v-card elevation="6" class="d-flex flex-column justify-space-between">
+      <v-row class="d-flex align-center justify-center">
+      <v-col cols="12" lg="4" md="6" sm="12" xs="12">
           <v-container>
             <v-img contain :src="sProduct.image" height="auto"></v-img>
           </v-container>
-        </v-card>
       </v-col>
-      <v-col cols="6" lg="6">
-        <v-card class="d-flex flex-column justify-space-between pa-3">
+      <v-col cols="12" lg="8" md="6" sm="12" xs="12">
           <v-card-title> {{ sProduct.title }} </v-card-title>
           <v-card-subtitle>
             {{ sProduct.rating.count }} Product are available
@@ -67,9 +65,9 @@
       </v-snackbar>
           <v-btn v-bind="attrs" @click="addToCart(sProduct.id)" class="ma-2" color="success">Add to Cart</v-btn>
           </v-row>
-        </v-card>
       </v-col>
     </v-row>
+        </v-card>
     </v-container>
   </v-container>
 </template>
@@ -83,8 +81,7 @@ export default {
   data(){
     return{
     snackbar: false,
-    text: 'Add in cart successfully',
-    timeout: 2000,
+    timeout: 2500,
     }
   },
   computed: {
@@ -96,10 +93,7 @@ export default {
       this.snackbar=true
         this.$store.dispatch('loadAddTocart',id)
     },
-  },
-  mounted() {
-    this.$store.dispatch("loadSingleProduct");
-  },
+  }
 };
 </script>
 

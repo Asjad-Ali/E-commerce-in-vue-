@@ -1,10 +1,10 @@
 <template>
-<div class="Signpage d-flex align-center justify-center">
+<div class="Signpage">
     <header-1 />
   <v-container >
     <v-main >
-      <div class="d-flex align-center justify-center">
-      <v-col lg="5" md="6" sm="8">
+      <v-row class="d-flex align-center justify-center">
+      <v-col lg="5" md="6" sm="8" xs="12">
         <v-card rounded="lg" elevation="5" class="pa-5 my-3">
           <v-card-title class="justify-center">SIGNUP</v-card-title>
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -108,7 +108,7 @@
           </v-form>
         </v-card>
       </v-col>
-    </div>
+    </v-row>
     </v-main>
   </v-container>
   </div>
@@ -196,7 +196,8 @@ export default {
           alert("Your account successfully created")
         }
         }
-    }
+    },
+    
   }
 }
 </script>

@@ -13,7 +13,7 @@
         height="100vh"
         sm="6"
         lg="4"
-        v-for="product in allProducts"
+        v-for="product in getAllProducts"
         :key="product.index"
       >
         <v-card 
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import carousel from './carousel.vue';
 
 export default {
@@ -83,7 +83,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["allProducts"]),
+    ...mapGetters(["getAllProducts"])
   },
   methods:{
     productDescription(id){
@@ -94,7 +94,8 @@ export default {
       // alert("Add to cart "+id)
         this.$store.dispatch('loadAddTocart',id)
     },
-  }
+  },
+
 };
 </script>
 

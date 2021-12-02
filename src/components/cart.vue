@@ -40,6 +40,7 @@
 import { mapState } from "vuex";
 import header2 from "./header2.vue";
 export default {
+  name:'cart',
   components: { header2 },
   data() {
     return {
@@ -48,6 +49,7 @@ export default {
   computed: {
     ...mapState(["sCartProduct"]),
   },
+
 };
 </script>
 
