@@ -41,32 +41,35 @@
       <template v-slot:prepend>
         <v-list-item two-line>
           <v-list-item-avatar>
-            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+            <img src="../assets/profile.jpg">
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title ><a @click="route('profile')"><b>{{loginuser}}</b></a></v-list-item-title>
-            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+            <v-list-item-title ><a @click="route('profile')"><b>{{loginuser}} </b></a></v-list-item-title>
+            <v-list-item-subtitle class="success--text">Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </template>
 
       <v-divider></v-divider>
+      <div class="listitem">
 
       <v-list dense >
         <v-list-item
+          
           v-for="item in items"
           :key="item.title"
           @click="route(item.route)"
         >
-          <v-list-item-icon>
+          <v-list-item-icon class="me-3 d-flex align-center">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title style="font-size:15px padding">{{ item.title }}</v-list-item-title>
+            <v-list-item-title style="font-size:16px">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      </div>
       <v-spacer></v-spacer>
     </v-navigation-drawer>
 
@@ -118,5 +121,9 @@ mounted(){
 <style>
 .menulist{
   color: white;
+}
+.listitem :hover{
+  font-weight: bolder !important;
+  color: #1976D2 !important;
 }
 </style>
