@@ -13,7 +13,7 @@
       </v-col>
     </v-row>
     <v-row class="d-flex">
-      <v-col class="d-flex align-lg-space-around flex-row" v-for="scategory in productCategory" :key="scategory.index">
+      <v-col class="d-flex align-lg-space-around flex-row" v-for="scategory in getproductCategory" :key="scategory.index">
           <v-btn 
           color="primary"
             @click="(getCatogryPro(scategory))"
@@ -37,7 +37,7 @@
         height="100vh"
         sm="6"
         lg="4"
-        v-for="product in specificCategory"
+        v-for="product in getspecificCategory"
         :key="product.index"
       >
         <v-card
@@ -62,7 +62,7 @@
               dense
               half-increments
               readonly
-              size="14"
+              size="18"
             ></v-rating>
             <div class="grey--text ms-4">
               {{ product.rating.rate }} ({{ product.rating.count }})
@@ -74,17 +74,13 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
-
-
-
-    
-      </v-main>
+  </v-container>   
+  </v-main>
   </v-app>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import header2 from "./header2.vue";
 export default {
   name:"category",
@@ -96,8 +92,8 @@ export default {
     };
   },
   computed: {
-    ...mapState(["productCategory"]),
-    ...mapState(["specificCategory"]),
+  ...mapGetters(["getproductCategory","getspecificCategory"]),
+
   },
 
   methods: {

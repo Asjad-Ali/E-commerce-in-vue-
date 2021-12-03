@@ -12,6 +12,7 @@ import update from '../components/update.vue'
 import cart from '../components/cart.vue'
 import foter from '../components/foter.vue'
 import landingpage from '../components/landingpage.vue'
+import about from '../components/about.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,12 @@ const routes = [
     path: '/',
     name: 'landingpage',
     component: landingpage,
+  },
+
+  {
+    path: '/about',
+    name: 'about',
+    component: about,
   },
 
   {

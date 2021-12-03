@@ -20,14 +20,14 @@
           class="d-flex flex-column justify-md-space-between pa-1"
           elevation="6"
         >
-        <v-skeleton-loader
+        <!-- <v-skeleton-loader
           v-bind="attrs"
           type="card-avatar, article, actions"
-        >
+        > -->
           <v-img @click="productDescription(product.id)"
           :src="product.image" 
           height="350px" contain></v-img>
-        </v-skeleton-loader>
+        <!-- </v-skeleton-loader> -->
 
           <div style="height:3rem" class="d-flex align-center mx-4 mt-2">
              <h4  @click="productDescription(product.id)" > {{ product.title }} </h4>

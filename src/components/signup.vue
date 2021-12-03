@@ -162,7 +162,7 @@ export default {
       (v) => !!v || "Confirm Password is required",
       (v) => (v.length >= 8) || "Min 8 characters",
       (v) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!.%*?&])[A-Za-z\d@$!%*.?&]{8,}$/.test(v) || "Password is not valid Enter password like e.g Asjad@264",
-      () => this.password === this.cpassword || "Password and Confirm password doesn't match"      
+      // () => this.password === this.cpassword || "Password and Confirm password doesn't match"      
     ],
     }},
 

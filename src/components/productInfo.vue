@@ -1,4 +1,4 @@
-<template v-slot:action="{ attrs }">
+<template v-slot:action="{ attr }">
   <v-container>
     <header-2 />
     <v-container>
@@ -63,7 +63,7 @@
       >
         <h3>Your product added in cart successfully</h3>
       </v-snackbar>
-          <v-btn v-bind="attrs" @click="addToCart(sProduct.id)" class="ma-2" color="success">Add to Cart</v-btn>
+          <v-btn @click="addToCart(sProduct.id)" class="ma-2" color="success">Add to Cart</v-btn>
           </v-row>
       </v-col>
     </v-row>

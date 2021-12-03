@@ -85,13 +85,10 @@ data(){
       loginuser:"",
       drawer:false,
         items: [
-        // { title: 'Profile', route: "/profile" },
-        // { title: 'Update',   },
-        // { title: 'logout', route: "/login" },
         { title: 'Homepage', icon: 'mdi-collage', route: "Home" },
         { title: 'Category', icon: 'mdi-shape', route: "category" },
         { title: 'cart', icon: 'mdi-cart', route: "cart" },
-        { title: 'About Us', icon: 'mdi-account-group-outline', route: "home" },
+        { title: 'About Us', icon: 'mdi-account-group-outline', route: "about" },
         { title: 'Logout', icon: 'mdi-logout', route: "login" },
       ],
   }
@@ -108,11 +105,7 @@ mounted(){
   let getloginuser = localStorage.getItem('loginUser')
   let loginObject = JSON.parse(localStorage.getItem(getloginuser))
   this.loginuser = loginObject.name.firstname+ " "+loginObject.name.lastname
-    
-
-    
 },
-
 
 
 }
