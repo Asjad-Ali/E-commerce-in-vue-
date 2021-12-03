@@ -43,7 +43,7 @@
               dense
               half-increments
               readonly
-              size="14"
+              size="17"
             ></v-rating>
             <div class="grey--text ms-4">
               {{ product.rating.rate }}

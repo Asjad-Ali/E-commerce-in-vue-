@@ -3,19 +3,15 @@
     <v-app-bar app
       color="primary"
     >
-      <v-toolbar-title class="white--text">
+
+      <v-app-bar-nav-icon
+      class="white--text"
+       @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title class="white--text pa-0">
         <span class="font-weight-light">Shopping</span>
         <span >Mall</span>
       </v-toolbar-title>
 
-      <v-btn router to="/Home"
-      text class="white--text ms-3 ">
-        <span>HOME</span>
-      </v-btn>
-      <v-btn router to="/category"
-      text class="white--text mx-2">
-        <span>CATEGORY</span>
-      </v-btn>
 
       <v-spacer></v-spacer>
 
@@ -30,31 +26,49 @@
         <v-icon color="white" size="30">mdi-cart</v-icon>
     </v-btn>
     </v-badge>
+    </v-app-bar >
 
-<div class="text-center">
-    <v-menu offset-y open-on-hover>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          text
-          class="white--text "
-          v-bind="attrs"
-          v-on="on"
-        >
-        <v-icon>mdi-chevron-down</v-icon>
-          {{loginuser}}
-        </v-btn>
+
+
+    <!--       =============>  Side bar  <================ -->
+
+    <v-navigation-drawer
+    class="pa-3"
+      v-model="drawer"
+      fixed
+      temporary
+    >
+      <template v-slot:prepend>
+        <v-list-item two-line>
+          <v-list-item-avatar>
+            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title ><a @click="route('profile')"><b>{{loginuser}}</b></a></v-list-item-title>
+            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
       </template>
-      <v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense >
         <v-list-item
-          v-for="(item, index) in items"
-          :key="index"
+          v-for="item in items"
+          :key="item.title"
+          @click="route(item.route)"
         >
-          <v-list-item-title ><v-btn router :to="item.route">{{ item.title }}</v-btn></v-list-item-title>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title style="font-size:15px padding">{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-menu>
-  </div>
-    </v-app-bar>
+      <v-spacer></v-spacer>
+    </v-navigation-drawer>
 
 </v-container>
 </template>
@@ -66,11 +80,22 @@ export default {
 data(){
     return{
       loginuser:"",
+      drawer:false,
         items: [
-        { title: 'Profile', route: "/profile" },
-        { title: 'Update', route: "/update"  },
-        { title: 'logout', route: "/login" },
+        // { title: 'Profile', route: "/profile" },
+        // { title: 'Update',   },
+        // { title: 'logout', route: "/login" },
+        { title: 'Homepage', icon: 'mdi-collage', route: "Home" },
+        { title: 'Category', icon: 'mdi-shape', route: "category" },
+        { title: 'cart', icon: 'mdi-cart', route: "cart" },
+        { title: 'About Us', icon: 'mdi-account-group-outline', route: "home" },
+        { title: 'Logout', icon: 'mdi-logout', route: "login" },
       ],
+  }
+},
+methods:{
+  route(rout){
+    this.$router.push({name: rout})
   }
 },
   computed: {
